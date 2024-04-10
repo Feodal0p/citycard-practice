@@ -3,13 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\User\IndexController;
 
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-    Route::post('logout', [loginController::class, 'destroy'])->name('logout');
+    Route::get('/', IndexController::class)->name('user.index');
+    Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 });
 
 Route::middleware('guest')->group(function () {
