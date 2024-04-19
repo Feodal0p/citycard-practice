@@ -3,11 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\User\IndexController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\AdminController;
 
+Route::middleware('auth')->group(function () {
+    Route::get('/', [UserController::class, 'create'])->name('user.index');
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', IndexController::class)->name('user.index');
+    Route::middleware('admin')->prefix('admin')->group(function (){
+        Route::get('/', [AdminController::class, 'create'])->name('admin.index');
+    });
+
     Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 });
 
