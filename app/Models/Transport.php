@@ -9,5 +9,10 @@ class Transport extends Model
 {
     use HasFactory;
 
-    protected $table = 'transport';
+    protected $table = 'transports';
+
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
 }

@@ -6,18 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use \Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Cities extends Model
+class City extends Model
 {
     use HasFactory;
 
-    protected $table = 'cities'
+    protected $table = 'cities';
+    public $timestamps = false;
+    protected $fillable = ['name', 'region'];
 
     public function tickets(): HasMany
     {
-        return $this->hasMany(Tickets::class);
+        return $this->hasMany(Ticket::class);
     }
 
-    public function transport(): HasMany
+    public function transports(): HasMany
     {
         return $this->hasMany(Transport::class);
     }

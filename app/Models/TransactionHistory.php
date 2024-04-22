@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class TransactionHistory extends Model
 {
     use HasFactory;
+
+    public function card(): BelongsTo
+    {
+        return $this->belongsTo(Card::class);
+    }
+
+    public function ticket(): BelongsTo
+    {
+        return $this->belongsTo(Ticket::class);
+    }
 }

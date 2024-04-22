@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container">
-        <a href="" class="navbar-brand">
-             {{$user['name'] . " " . $user['phone']}}
+        <a href="/" class="navbar-brand">
+             {{Auth::user()->name. " " . Auth::user()->phone}}
         </a>
 
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

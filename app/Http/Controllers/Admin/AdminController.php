@@ -4,13 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Auth;
+use App\Models\City;
+use App\Models\Transport;
+use App\Models\Ticket;
+
 
 class AdminController extends Controller
 {
-    public function create(): View
+    public function index(): View
     {
-        $user = Auth::user();
-        return view('admin.index', compact('user'));
+        return view('admin.index', [
+            'cities' => City::All(),
+            'transports' => Transport::All(),
+            'tickets' => Ticket::All()
+        ]);
     }
 }

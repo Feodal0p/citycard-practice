@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('route_number');
             $table->string('route_description');
 
-            $table->foreignId('city_id')->references('id')->on('cities');
+            $table->foreignId('city_id')->references('id')->on('cities')->onDelete('cascade');
         });
     }
 

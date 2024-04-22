@@ -18,8 +18,8 @@ class LoginController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
-            'phone' => ['required'],
-            'password' => ['required']
+            'phone' => 'required',
+            'password' => 'required'
 
         ]);
         if (Auth::attempt($data)) {

@@ -6,14 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Tickets extends Model
+class Card extends Model
 {
     use HasFactory;
 
-    protected $table = 'tickets'
+    protected $table = 'cards';
 
     public function transaction(): HasMany
     {
         return $this->hasMany(TransactionHistory::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

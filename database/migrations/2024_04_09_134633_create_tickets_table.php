@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('transport_type');
             $table->double('price');
 
-            $table->foreignId('city_id')->references('id')->on('cities');
+            $table->foreignId('city_id')->references('id')->on('cities')->onDelete('cascade');
         });
     }
 
