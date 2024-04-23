@@ -12,7 +12,11 @@ use App\Http\Controllers\Admin\TicketController;
 
 Route::middleware('auth')->group(function () {
     Route::middleware('user')->prefix('user')->group(function () {
-        Route::get('/', [UserController::class, 'create'])->name('user.index');
+        Route::controller(UserController::class)->group(function (){
+            Route::get('/', 'index')->name('user.index');
+            Route::post('/', 'store');
+
+        });
     });
 
     Route::middleware('admin')->group(function (){

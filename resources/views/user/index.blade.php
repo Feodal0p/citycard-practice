@@ -1,19 +1,40 @@
 @extends('layouts.base')
 
 @section('content')
+    <div class="row w-100">
     @if (!$cards->isEmpty())
         @foreach($cards as $card)
-            <div class="card" style="width: 20rem;">
+            <div class="card mx-auto" style="width: 25rem;">
             <div class="card-body">
                 <h5 class="card-title">{{$card->balance}}₴</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Тип:{{$card->type}}</h6>
-                <p class="card-text">Номер:{{$card->number}}</p>
-                <a href="#" class="card-link">Історія поповнень</a>
-                <a href="#" class="card-link">Історія поїздок</a>
+                <h6 class="card-subtitle mb-2 text-muted">Тип: {{$card->type}}</h6>
+                <p class="card-text">Номер: {{$card->number}}</p>
+                <div class="row w-100">
+                    <div class="col text-start">
+                        <a href="#" class="card-link">Історія поповнень</a>
+                    </div>
+                    <div class="col text-end">
+                        <a href="#" class="card-link">Історія поїздок</a>
+                    </div>
+                </div>
             </div>
             </div>
         @endforeach
     @else
-        <p> you don't have a card
+    </div>
+    <div class="card mx-auto" style="width: 20rem;">
+        <div class="card-body">
+            <h5 class="card-title">До цього номеру не прив'язано жодної картки</h5>
+            <form action="{{route('user.index')}}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-block btn-primary">
+                    Створити картку
+                </button>
+             </form>
+            {{-- <div class="mx-auto">
+                <Button class="btn btn-block btn-primary">Добавити картку</Button>
+            </div> --}}
+        </div>
+    </div>
     @endif
 @endsection

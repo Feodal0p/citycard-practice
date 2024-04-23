@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
-            $table->integer('number');
+            $table->string('number')->unique();
             $table->string('type');
             $table->double('balance');
 

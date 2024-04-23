@@ -26,7 +26,7 @@ class RegisterController extends Controller
         $user = User::Create($data);
         Auth::login($user);
         
-        return redirect('/');
+        return redirect('/user');
     }
 
     

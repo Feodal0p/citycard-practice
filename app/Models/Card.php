@@ -11,6 +11,9 @@ class Card extends Model
     use HasFactory;
 
     protected $table = 'cards';
+    public $timestamps = false;
+    protected $fillable = ['number','type','balance'];
+
 
     public function transaction(): HasMany
     {
