@@ -11,6 +11,8 @@ class Ticket extends Model
     use HasFactory;
 
     protected $table = 'tickets';
+    public $timestamps = false;
+    protected $fillable = ['type', 'transport_type', 'price'];
 
     public function transaction(): HasMany
     {

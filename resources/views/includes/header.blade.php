@@ -1,9 +1,15 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container">
-        <a href="/" class="navbar-brand">
-             {{Auth::user()->name. " " . Auth::user()->phone}}
-        </a>
-
+        @use('App\Models\User')
+        @if (Auth::user()->role == User::ROLE_ADMIN)
+            <a href="{{ route('admin.city.index')}}" class="navbar-brand">
+                {{Auth::user()->name. " " . Auth::user()->phone}}
+            </a>
+        @else
+            <a href="{{ route('user.index')}}" class="navbar-brand">
+                {{Auth::user()->name. " " . Auth::user()->phone}}
+            </a>
+        @endif
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
         </button>

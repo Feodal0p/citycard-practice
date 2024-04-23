@@ -35,7 +35,12 @@
                         <a href="{{ route('admin.transport.index', $city) }}">Переглянути</a>
                      </p>
                   </td>
-                  <td>Кількість квитків: {{count($tickets->where('city_id', $city->id))}}</td>
+                  <td>
+                     Кількість квитків: {{count($tickets->where('city_id', $city->id))}}
+                     <p>
+                        <a href="{{ route('admin.ticket.index', $city) }}">Переглянути</a>
+                     </p>
+                  </td>
                   <td>
                      <a href="{{ route('admin.city.edit', $city) }}">
                         <i class="bi bi-pencil-square" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Редагувати назву"></i>
