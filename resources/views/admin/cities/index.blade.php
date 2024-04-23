@@ -32,15 +32,15 @@
                   <td>
                      Кількість транспорту: {{count($transports->where('city_id', $city->id))}}
                      <p>
-                        <a href="{{ route('admin.transport.index', $city->id) }}">Переглянути</a>
+                        <a href="{{ route('admin.transport.index', $city) }}">Переглянути</a>
                      </p>
                   </td>
                   <td>Кількість квитків: {{count($tickets->where('city_id', $city->id))}}</td>
                   <td>
-                     <a href="{{ route('admin.city.edit', $city->id) }}">
+                     <a href="{{ route('admin.city.edit', $city) }}">
                         <i class="bi bi-pencil-square" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Редагувати назву"></i>
                      </a>
-                     <form action="{{route('admin.city.delete', $city->id)}}" method="POST">
+                     <form action="{{route('admin.city.delete', $city)}}" method="POST">
                         @csrf
                         @method('DELETE')    
                         <button type="submit" class="border-0 bg-transparent">

@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\User\UserController;
-use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\TransportController;
 
@@ -14,17 +13,25 @@ Route::middleware('auth')->group(function () {
     Route::get('user', [UserController::class, 'create'])->name('user.index');
 
     Route::middleware('admin')->prefix('admin')->group(function (){
-        Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-
-        Route::controller(CityController::class)->prefix('cities')->group(function (){
-            Route::get('create', 'create')->name('admin.city.create');
-            Route::post('create', 'store');
-            Route::get('{city}/edit', 'edit')->name('admin.city.edit');
-            Route::patch('{city}', 'update')->name('admin.city.update');
-            Route::delete('{city}/delete', 'delete')->name('admin.city.delete');
-        });
-        Route::controller(TransportController::class)->prefix('cities')->group(function (){
-            Route::get('{city}/transports', 'index')->name('admin.transport.index');
+        Route::prefix('cities')->group(function(){
+            Route::controller(CityController::class)->group(function (){
+                Route::get('/', 'index')->name('admin.city.index');
+                Route::get('create', 'create')->name('admin.city.create');
+                Route::post('create', 'store');
+                Route::get('{city}/edit', 'edit')->name('admin.city.edit');
+                Route::patch('{city}', 'update')->name('admin.city.update');
+                Route::delete('{city}/delete', 'delete')->name('admin.city.delete');
+            });
+            Route::prefix('{city}/transports')->group(function(){
+                Route::controller(TransportController::class)->group(function (){
+                    Route::get('/', 'index')->name('admin.transport.index');
+                    Route::get('create', 'create')->name('admin.transport.create');
+                    Route::post('create', 'store');
+                    Route::get('{transport}/edit', 'edit')->name('admin.transport.edit');
+                    Route::patch('{transport}', 'update')->name('admin.transport.update');
+                    Route::delete('{transport}/delete', 'delete')->name('admin.transport.delete');
+                 });
+            });
         });
     });
 

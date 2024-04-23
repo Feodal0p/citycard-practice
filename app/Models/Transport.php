@@ -10,6 +10,8 @@ class Transport extends Model
     use HasFactory;
 
     protected $table = 'transports';
+    public $timestamps = false;
+    protected $fillable = ['transport_type', 'route_number','route_description'];
 
     public function city(): BelongsTo
     {

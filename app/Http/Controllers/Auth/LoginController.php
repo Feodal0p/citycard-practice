@@ -7,6 +7,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
 
 class LoginController extends Controller
 {
@@ -24,8 +26,11 @@ class LoginController extends Controller
         ]);
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
- 
-            return redirect('/');
+            if(Auth::user()->role !== User::ROLE_ADMIN){
+                return redirect('/user');
+            } 
+            else
+            return redirect('/admin/cities');
         }
         return back()->withErrors([
             'phone' => 'The provided credentials do not match our records.',

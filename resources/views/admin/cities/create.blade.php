@@ -3,7 +3,7 @@
 @section('content')
 <div class="card w-50 text-center mx-auto">
     <div class="card-header">
-     Створення нового запису для міста
+     Створення нового запису міста
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">

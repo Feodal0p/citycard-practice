@@ -7,19 +7,19 @@
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
-        <form action="{{ route('admin.city.update', $city->id)}}" method='POST'>
+        <form action="{{ route('admin.city.update', $city)}}" method='POST'>
             @csrf
             @method('PATCH')
             <div class="input-group mb-3 mx-auto">
-                <span class="input-group-text" id="inputGroup-sizing-default">Name of the city</span>
-                <input type="text" class="form-control" placeholder="Enter name of the city" name="name" value="{{old('name', $city->name)}}">
+                <span class="input-group-text" id="inputGroup-sizing-default">Назва міста</span>
+                <input type="text" class="form-control" placeholder="Введіть назву міста" name="name" value="{{old('name', $city->name)}}">
                     @error('name')
                         <div class="text-danger">{{$message}}</div>
                     @enderror
               </div>
               <div class="input-group mb-3 mx-auto">
-                <span class="input-group-text" id="inputGroup-sizing-default">Region of the city</span>
-                <input type="text" class="form-control" placeholder="Enter region of the city" name="region" value="{{old('region', $city->region)}}">
+                <span class="input-group-text" id="inputGroup-sizing-default">Область міста</span>
+                <input type="text" class="form-control" placeholder="Введіть область міста" name="region" value="{{old('region', $city->region)}}">
                     @error('region')
                         <div class="text-danger">{{$message}}</div>
                     @enderror
