@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         DB::table('cards')->insert([
             'number' => '12345-12345-0',
             'type' => 'Звичайний',
-            'balance' => 250,
+            'balance' => 238,
             'user_id' => 2,
         ]);
         
@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('transaction_histories')->insert([
             'type' => 0,
-            'amount' => 238,
+            'amount' => 250,
             'created_at' => date("Y-m-d H:i:s"),
             'card_id' => 1,
         ]);
