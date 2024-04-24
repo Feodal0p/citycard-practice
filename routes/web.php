@@ -15,7 +15,8 @@ Route::middleware('auth')->group(function () {
         Route::controller(UserController::class)->group(function (){
             Route::get('/', 'index')->name('user.index');
             Route::post('/', 'store');
-
+            Route::get('/cards/{card}/usage', 'usage')->name('user.usage');
+            Route::get('/cards/{card}/charge', 'charge')->name('user.charge');
         });
     });
 

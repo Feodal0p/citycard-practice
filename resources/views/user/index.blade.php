@@ -11,10 +11,10 @@
                 <p class="card-text">Номер: {{$card->number}}</p>
                 <div class="row w-100">
                     <div class="col text-start">
-                        <a href="#" class="card-link">Історія поповнень</a>
+                        <a href="{{ route('user.charge', $card)}}" class="card-link">Історія поповнень</a>
                     </div>
                     <div class="col text-end">
-                        <a href="#" class="card-link">Історія поїздок</a>
+                        <a href="{{ route('user.usage', $card)}}" class="card-link">Історія використань</a>
                     </div>
                 </div>
             </div>

@@ -3,12 +3,18 @@
 @section('content')
 <div class="card">
    <div class="card-header row w-100">
-      <div class="col text-end">
-        Транспорт {{$city->region . " " . $city->name}}
-      </div>
-      <div class="col text-end">
+      <div class="col col-lg-2 text-center">
+         <a href="{{ route('admin.city.index')}}">
+             <i class="bi bi-arrow-left h4"></i>
+         </a>
+     </div>
+       <div class="col text-center">
+         Транспорт {{$city->region . " " . $city->name}}
+       </div>
+       <div class="col col-lg-2 text-end">
          <a href="{{ route('admin.transport.create', $city)}}">Добавити новий запис</a>
-      </div>
+       </div>
+    </div>
    </div>
    <div class="card-body text-center">
       <table class="table">

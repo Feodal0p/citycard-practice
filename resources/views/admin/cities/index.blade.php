@@ -2,13 +2,16 @@
 
 @section('content')
 <div class="card">
-   <div class="card-header row w-100">
-      <div class="col text-end">
-         Міста
-      </div>
-      <div class="col text-end">
-         <a href="{{ route('admin.city.create')}}">Добавити новий запис</a>
-      </div>
+   <div class="card-header">
+      <div class="row">
+         <div class="col col-lg-2 text-center"></div>
+         <div class="col text-center">
+            Міста
+         </div>
+         <div class="col col-lg-2 text-end">
+            <a href="{{ route('admin.city.create')}}">Добавити новий запис</a>
+         </div>
+       </div>
    </div>
    <div class="card-body text-center">
       <table class="table">

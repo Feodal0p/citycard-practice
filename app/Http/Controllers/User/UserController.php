@@ -5,8 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-use App\Models\Card;
 use Illuminate\Http\Request;
+use App\Models\Card;
+use App\Models\TransactionHistory;
+
 
 class UserController extends Controller
 {
@@ -28,5 +30,21 @@ class UserController extends Controller
         } while(Card::where('number', $card->number)->count() == 1);
         $card->save();
         return redirect()->route('user.index');
+    }
+
+    public function usage(Card $card): View
+    {
+        return view('user.usage', [
+            'card' => $card,
+            'usages' => $card->transaction()->where('type', TransactionHistory::TYPE_USAGE)->get(),
+        ]);
+    }
+
+    public function charge(Card $card): View
+    {
+        return view('user.charge', [
+            'card' => $card,
+            'charges' => $card->transaction()->where('type', TransactionHistory::TYPE_CHARGE)->get(),
+        ]);
     }
 }

@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('transaction_histories', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->integer('type');
             $table->double('amount');
+            $table->unsignedBigInteger('ticket_id')->nullable();
             $table->timestamps();
 
             $table->foreignId('card_id')->references('id')->on('cards');
-            $table->foreignId('ticket_id')->references('id')->on('tickets');
+            $table->foreign('ticket_id')->references('id')->on('tickets');
 
         });
     }

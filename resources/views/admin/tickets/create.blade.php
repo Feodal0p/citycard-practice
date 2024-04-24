@@ -3,7 +3,18 @@
 @section('content')
 <div class="card w-50 text-center mx-auto">
     <div class="card-header">
-     Створення нового запису квитка
+      <div class="row">
+        <div class="col col-lg-2 text-center">
+          <a href="{{URL::previous()}}">
+            <i class="bi bi-arrow-left h4"></i>
+        </a>
+        </div>
+        <div class="col text-center">
+          Створення нового запису квитка
+        </div>
+        <div class="col col-lg-2 text-end"></div>
+      </div>
+     
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
