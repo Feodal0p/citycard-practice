@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('transaction_histories')->insert([
             'type' => 0,
-            'amount' => 250,
+            'amount' => 238,
             'created_at' => date("Y-m-d H:i:s"),
             'card_id' => 1,
         ]);
