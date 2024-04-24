@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('ticket_id')->nullable();
             $table->timestamps();
 
-            $table->foreignId('card_id')->references('id')->on('cards');
-            $table->foreign('ticket_id')->references('id')->on('tickets');
+            $table->foreignId('card_id')->references('id')->on('cards')->onDelete('cascade');
+            $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete('cascade');
 
         });
     }

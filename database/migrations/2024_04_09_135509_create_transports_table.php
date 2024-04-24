@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('transports', function (Blueprint $table) {
             $table->id();
             $table->string('transport_type');
-            $table->integer('route_number');
+            $table->string('route_number');
             $table->string('route_description');
 
             $table->foreignId('city_id')->references('id')->on('cities')->onDelete('cascade');

@@ -23,9 +23,9 @@
            </tr>
          </thead>
          <tbody>
+            @if(!$usages->isEmpty())
+            @foreach($usages as $usage)
             <tr>
-                @if(!$usages->isEmpty())
-                @foreach($usages as $usage)
                 <td>
                     <div class="row">
                         <div class="col-1 text-end">
@@ -42,13 +42,13 @@
                         </div>
                     </div>
                 </td>
-                @endforeach
-                @else
-                <td colspan="4">
-                    Не знайдено жодного запису
-                </td>
-                @endif
             </tr>
+            @endforeach
+            @else
+            <td colspan="4">
+                Не знайдено жодного запису
+            </td>
+            @endif
          </tbody>
        </table>
    </div>

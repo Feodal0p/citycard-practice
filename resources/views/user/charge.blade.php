@@ -23,15 +23,15 @@
            </tr>
          </thead>
          <tbody>
+            @if(!$charges->isEmpty())
+            @foreach($charges as $charge)
             <tr>
-                @if(!$charges->isEmpty())
-                @foreach($charges as $charge)
                 <td>
                     <div class="row">
                         <div class="col-1 text-end">
                             <i class="bi bi-credit-card text-primary h2"></i>
                         </div>
-                        <div class="col-2 text-start">
+                        <div class="col-2 text-start ">
                             {{$charge->created_at}}
                         </div>
                         <div class="col-2 text-start">
@@ -42,13 +42,13 @@
                         </div>
                     </div>
                 </td>
-                @endforeach
-                @else
-                <td colspan="4">
-                    Не знайдено жодного запису
-                </td>
-                @endif
             </tr>
+            @endforeach
+            @else
+            <td colspan="4">
+                Не знайдено жодного запису
+            </td>
+            @endif
          </tbody>
        </table>
    </div>
