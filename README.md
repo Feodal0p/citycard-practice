@@ -4,10 +4,7 @@ Clone repo
 ```
 git clone https://github.com/Feodal0p/citycard-practice.git
 ```
-Copy .env.example file to .env, generating a New Application Key
-```
-./vendor/bin/sail artisan key:generate
-```
+Copy .env.example file to .env
 
 ### Install dependencies
 install dependecies uses composer 
@@ -27,6 +24,11 @@ docker run --rm \
 ### Run docker
 ```
 ./vendor/bin/sail up --build -d 
+```
+
+### Generating a New Application Key
+```
+./vendor/bin/sail artisan key:generate
 ```
 
 ### Run migrations
