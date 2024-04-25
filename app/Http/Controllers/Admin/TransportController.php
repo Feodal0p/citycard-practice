@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Models\City;
 use App\Models\Transport;
 
-
 class TransportController extends Controller
 {
     public function index(City $city): View

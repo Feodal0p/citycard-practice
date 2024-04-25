@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Models\Card;
 use App\Models\TransactionHistory;
 
-
 class UserController extends Controller
 {
     public function index(Request $request): View

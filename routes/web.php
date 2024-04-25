@@ -8,8 +8,6 @@ use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\TransportController;
 use App\Http\Controllers\Admin\TicketController;
 
-
-
 Route::middleware('auth')->group(function () {
     Route::middleware('user')->prefix('user')->group(function () {
         Route::controller(UserController::class)->group(function (){
@@ -53,18 +51,17 @@ Route::middleware('auth')->group(function () {
             });
     });
 
-    Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::middleware('guest')->group(function () {
     Route::controller(LoginController::class)->group(function (){
         Route::get('login', 'create')->name('login');
-        Route::post('login', 'store');
+        Route::post('login', 'login');
     });
-
+    
     Route::controller(RegisterController::class)->group(function (){
         Route::get('register', 'create')->name('register');
         Route::post('register', 'store');
     });
 });
-

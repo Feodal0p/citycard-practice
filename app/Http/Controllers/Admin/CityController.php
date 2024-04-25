@@ -10,8 +10,6 @@ use App\Models\City;
 use App\Models\Ticket;
 use App\Models\Transport;
 
-
-
 class CityController extends Controller
 {
     public function index(): View

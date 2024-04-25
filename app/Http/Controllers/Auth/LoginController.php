@@ -9,7 +9,6 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-
 class LoginController extends Controller
 {
     public function create(): View
@@ -17,7 +16,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function login(Request $request): RedirectResponse
     {
         $data = $request->validate([
             'phone' => 'required',
@@ -37,7 +36,7 @@ class LoginController extends Controller
         ])->onlyInput('phone');
     }
 
-    public function destroy(Request $request): RedirectResponse
+    public function logout(Request $request): RedirectResponse
     {
         Auth::logout();
  
