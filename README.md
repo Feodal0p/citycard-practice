@@ -4,7 +4,10 @@ Clone repo
 ```
 git clone https://github.com/Feodal0p/citycard-practice.git
 ```
-Copy .env.example file to .env
+Copy .env.example file to .env, generating a New Application Key
+```
+./vendor/bin/sail artisan key:generate
+```
 
 ### Install dependencies
 install dependecies uses composer 
