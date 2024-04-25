@@ -55,6 +55,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('guest')->group(function () {
+    Route::get('/', function () {
+        return redirect('/login');
+    });
+
     Route::controller(LoginController::class)->group(function (){
         Route::get('login', 'create')->name('login');
         Route::post('login', 'login');
