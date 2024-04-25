@@ -7,11 +7,11 @@ git clone https://github.com/Feodal0p/citycard-practice.git
 Copy .env.example file to .env
 
 ### Install dependencies
-install dependecies uses composer 
+install dependecies using composer 
 ```
 composer install
 ```
-Or install dependecies uses docker container
+Or install dependecies using docker container
 ```
 docker run --rm \
     -u "$(id -u):$(id -g)" \
@@ -21,12 +21,12 @@ docker run --rm \
     composer install --ignore-platform-reqs
 ```
 
-### Run docker
+### Run docker containers
 ```
 ./vendor/bin/sail up --build -d 
 ```
 
-### Generating a New Application Key
+### Generate a New Application Key
 ```
 ./vendor/bin/sail artisan key:generate
 ```
