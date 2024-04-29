@@ -30,7 +30,7 @@ class TransportController extends Controller
     {
         $request->validate([
             'transport_type' => 'required|string',
-            'route_number' => 'required|integer',
+            'route_number' => 'required|string',
             'route_description' => 'required|string',
         ]);
 
@@ -58,7 +58,7 @@ class TransportController extends Controller
     {
         $data = $request->validate([
             'transport_type' => 'required|string',
-            'route_number' => 'required|integer',
+            'route_number' => 'required|string',
             'route_description' => 'required|string',
         ]);
         $transport->update($data);
