@@ -25,7 +25,8 @@ class UserController extends Controller
         $card->type = 'Звичайний';
         $card->balance = 0;
         do {
-            $card->number = fake()->numerify('#####-#####-#');
+            $card->number = random_int(pow(10,4),pow(10,5)-1) . '-' . random_int(pow(10,4),pow(10,5)-1) . '-' . random_int(0,9);
+            // $card->number = fake()->numerify('#####-#####-#');
         } while(Card::where('number', $card->number)->count() == 1);
         $card->save();
         return redirect()->route('user.index');
